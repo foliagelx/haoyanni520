@@ -1,0 +1,112 @@
+﻿<!DOCTYPE HTML>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+	<title>Our Love Story</title>
+	<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+	<style type="text/css">
+		@font-face {
+			font-family: digit;
+			src: url('digital-7_mono.ttf') format("truetype");
+		}
+	</style>
+	<link href="css/default.css" type="text/css" rel="stylesheet">
+	<script type="text/javascript" src="js/jquery.js"></script>
+	<script type="text/javascript" src="js/garden.js"></script>
+    <script type="text/javascript" src="js/functions.js"></script>
+</head>
+
+<body>
+	<div id="mainDiv">
+		<div id="content">
+			<div id="code">
+				<span class="comments">/**</span><br />
+				<span class="space"/><span class="comments">* 时间过得飞快，我们已经相恋一周年了。</span><br />
+				<span class="space"/><span class="comments">* 在此用我毕生所学，用这代码来庆祝属于我们的节日。</span><br />
+				<span class="space"/><span class="comments">*/</span><br />
+				Boy i = <span class="keyword">new</span> Boy(<span class="string">"陆平"</span>);<br />
+				Girl u = <span class="keyword">new</span> Girl(<span class="string">"郝燕妮"</span>);<br />
+				<span class="comments">// 2013年06月22日，上天让我们通过相亲相识。 </span><br />
+				i.meet(u);<br />
+				<span class="comments">// 幸运的是，我们聊得很投机，并且很快交换了联系方式。</span><br />
+				i.exchangePhone(u.phoneNumber);<br />
+				<span class="comments">// 回到家，我发送了第一条短信</span><br />
+                <span class="comments">//2013-06-22T21:55:52.412 to 郝艳妮(1381789****)</span><br />
+				i.sendMessage("到家了没");<br />
+                <span class="comments">// 半小时后，你回了消息。</span><br />
+                <span class="comments">//2013-06-22T22:32:52.000 from 郝艳妮(+861381789****)</span><br />
+				u.sendMessage("呵呵，我qq80658****");<br />
+				<span class="comments">// 第二天，我去中山公园接你下课。</span><br />
+                i.wait(u);<br />
+				<span class="comments">// 娄山关路，我第一份工作那儿。我们在西贝吃了第一顿晚餐。</span><br />
+                i.haveDinner(u);<br />
+                <span class="comments">// 之后我们恋爱了。</span><br />
+                i.fallInLove(u);<br />
+                <span class="comments">// 之后我们又聊了很多很多。</span><br />
+				<span class="keyword">while</span> (DateTime.Now.ToShortDateString()=="2014/06/22") {<br />
+                <span class="placeholder"/>i.sendMessages();<br />
+				<span class="placeholder"/>u.sendMessages();<br />
+                <span class="keyword">    if</span> (you.needSeeMoreMessage()==true) {<br />
+				    <span class="placeholder"/><span class="comments"><a href="sms2.txt">短信息</a></span><br />
+                    }<br />
+				}<br />
+				<span class="comments">// 在这一年中，你因我而受了很多的气。</span><br />
+                <span class="comments">// 在这一年中，我没有很好的陪伴在你的身边。</span><br />
+                <span class="comments">// 在这一年中，我们都没有出去好好玩过。</span><br />
+                <span class="comments">// 在这一年中，我们还有好多的愿望没有实现。</span><br />
+                <span class="comments">// ......</span><br />
+				i.thinkMore();
+                <span class="comments">// 我们的日子还在继续</span><br />
+			</div>
+			<div id="loveHeart">
+				<canvas id="garden"></canvas>
+				<div id="words">
+					<div id="messages">
+						郝燕妮, 我喜欢你。
+						<div id="elapseClock"></div>
+					</div>
+					<div id="loveu">
+						Love u forever and ever.<br/>
+						<div class="signature">- 陆平</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div id="copyright">
+			Copyright © 2014 <a href='#'>陆平</a> 2009-2014
+		</div>
+	</div>
+	<script type="text/javascript">
+		var offsetX = $("#loveHeart").width() / 2;
+		var offsetY = $("#loveHeart").height() / 2 - 55;
+		var together = new Date();
+		together.setFullYear(2013, 06, 22);
+		together.setHours(23);
+		together.setMinutes(0);
+		together.setSeconds(0);
+		together.setMilliseconds(0);
+		
+		if (!document.createElement('canvas').getContext) {
+			var msg = document.createElement("div");
+			msg.id = "errorMsg";
+			msg.innerHTML = "Your browser doesn't support HTML5!<br/>Recommend use Chrome 14+/IE 9+/Firefox 7+/Safari 4+"; 
+			document.body.appendChild(msg);
+			$("#code").css("display", "none")
+			$("#copyright").css("position", "absolute");
+			$("#copyright").css("bottom", "10px");
+		    document.execCommand("stop");
+		} else {
+			setTimeout(function () {
+				startHeartAnimation();
+			}, 5000);
+
+			timeElapse(together);
+			setInterval(function () {
+				timeElapse(together);
+			}, 500);
+
+			adjustCodePosition();
+			$("#code").typewriter();
+		}
+	</script>
+</body>
+</html>
